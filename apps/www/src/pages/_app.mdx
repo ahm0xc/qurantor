@@ -1,0 +1,11 @@
+import PagesLayout from "~/components/pages-layout";
+
+import "~/styles/docs.css";
+
+export default function App({ Component, pageProps }) {
+  return (
+    <PagesLayout>
+      <Component {...pageProps} />
+    </PagesLayout>
+  );
+}

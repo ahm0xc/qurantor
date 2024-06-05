@@ -1,0 +1,52 @@
+:is(html[class~="dark"] body) {
+  background-color: hsla(var(--background)) !important;
+}
+
+.nextra-nav-container {
+  background: transparent !important;
+}
+.nextra-nav-container > nav {
+  background: transparent !important;
+}
+
+#__next
+  > div
+  > div
+  > div.nextra-nav-container.nx-sticky.nx-top-0.nx-z-20.nx-w-full.nx-bg-transparent.print\:nx-hidden
+  > div.dim-bg {
+  background: hsla(var(--background) / 0.5) !important;
+}
+
+#__next
+  > div
+  > div
+  > div.nextra-nav-container.nx-sticky.nx-top-0.nx-z-20.nx-w-full.nx-bg-transparent.print\:nx-hidden
+  > div {
+  background: hsla(var(--background) / 0) !important;
+}
+
+#__next
+  > div
+  > div
+  > div.nx-mx-auto.nx-flex.nx-max-w-\[90rem\]
+  > nav
+  > div
+  > div {
+  box-shadow:
+    var(--tw-ring-offset-shadow, 0 0 transparent),
+    var(--tw-ring-shadow, 0 0 transparent),
+    0 -12px 16px #0000;
+  background-color: transparent;
+}
+
+aside.nextra-sidebar-container div[data-toggle-animation="off"] {
+  box-shadow:
+    var(--tw-ring-offset-shadow, 0 0 transparent),
+    var(--tw-ring-shadow, 0 0 transparent),
+    0 -12px 16px #0000;
+  background-color: transparent;
+}
+
+footer {
+  background-color: hsla(var(--background)) !important;
+}
