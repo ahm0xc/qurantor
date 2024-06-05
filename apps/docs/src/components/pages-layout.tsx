@@ -1,12 +1,10 @@
+import React from "react";
 import Image from "next/image";
 
 import BackgroundImage from "~/assets/Background main.png";
-
-import "~/styles/globals.css";
-import "~/styles/docs.css";
 import ChangeNavbarThemeOnScroll from "~/components/change-navbar-theme-on-scroll";
 
-export default function MyApp({ Component, pageProps }) {
+export default function PagesLayout({ children }: React.PropsWithChildren) {
   return (
     <div>
       <Image
@@ -23,7 +21,7 @@ export default function MyApp({ Component, pageProps }) {
         alt=""
       />
       <ChangeNavbarThemeOnScroll />
-      <Component {...pageProps} />
+      {children}
     </div>
   );
 }

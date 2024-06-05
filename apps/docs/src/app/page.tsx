@@ -5,7 +5,7 @@ export default function HomePage() {
   return (
     <div>
       HomePage
-      <Link href="/docs">Docs</Link>
+      <Link href="/docs" className="text-orange-600">Docs</Link>
     </div>
   );
 }
