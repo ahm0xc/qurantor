@@ -1,4 +1,6 @@
 {
-  "index": "Introduction",
-  "getting-started": "Getting started"
+  "docs": {
+    "type": "page",
+    "title": "Docs"
+  }
 }
