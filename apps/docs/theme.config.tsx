@@ -2,7 +2,7 @@ import React from "react";
 import { DocsThemeConfig } from "nextra-theme-docs";
 
 const config: DocsThemeConfig = {
-  logo: <span>Qurantor</span>,
+  logo: <span>Qurantor Docs</span>,
   docsRepositoryBase: "https://github.com/ahm0xc",
   footer: {
     text: "Qurantor",

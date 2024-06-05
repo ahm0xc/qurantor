@@ -4,6 +4,7 @@ import BackgroundImage from "~/assets/Background main.png";
 
 import "~/styles/globals.css";
 import "~/styles/docs.css";
+import ChangeNavbarThemeOnScroll from "~/components/change-navbar-theme-on-scroll";
 
 export default function MyApp({ Component, pageProps }) {
   return (
@@ -21,6 +22,7 @@ export default function MyApp({ Component, pageProps }) {
         }}
         alt=""
       />
+      <ChangeNavbarThemeOnScroll />
       <Component {...pageProps} />
     </div>
   );

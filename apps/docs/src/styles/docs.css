@@ -1,9 +1,5 @@
-:root {
-  --custom-bg: 210 9% 4%;
-}
-
 :is(html[class~="dark"] body) {
-  background-color: hsla(var(--custom-bg)) !important;
+  background-color: hsla(var(--background)) !important;
 }
 
 .nextra-nav-container {
@@ -12,12 +8,21 @@
 .nextra-nav-container > nav {
   background: transparent !important;
 }
+
+#__next
+  > div
+  > div
+  > div.nextra-nav-container.nx-sticky.nx-top-0.nx-z-20.nx-w-full.nx-bg-transparent.print\:nx-hidden
+  > div.dim-bg {
+  background: hsla(var(--background) / 0.5) !important;
+}
+
 #__next
   > div
   > div
   > div.nextra-nav-container.nx-sticky.nx-top-0.nx-z-20.nx-w-full.nx-bg-transparent.print\:nx-hidden
   > div {
-  background: hsla(var(--custom-bg) / 0) !important;
+  background: hsla(var(--background) / 0) !important;
 }
 
 #__next
@@ -43,5 +48,5 @@ aside.nextra-sidebar-container div[data-toggle-animation="off"] {
 }
 
 footer {
-  background-color: hsla(var(--custom-bg)) !important;
+  background-color: hsla(var(--background)) !important;
 }
