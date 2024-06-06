@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import Editions from "~/data/editions/index.json";
 import fs from "node:fs";
 import path from "node:path";
 
+import Editions from "~/data/editions/index.json";
 import { STATUS_CODES } from "~/utils/status-code";
 
 export async function GET(
