@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "exports": {
+    "./editions": "./editions/index.json",
     "./editions/aar-sheikhmahmoudab.json": "./editions/aar-sheikhmahmoudab.json",
     "./editions/ace-tgkhmahjiddinju.json": "./editions/ace-tgkhmahjiddinju.json",
     "./editions/afr-imammabaker.json": "./editions/afr-imammabaker.json",

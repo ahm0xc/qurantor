@@ -70,8 +70,11 @@ function getImportStatements() {
   const files = fs.readdirSync("./editions");
   files.forEach((fileName) => {
     console.log(
-      `import ${toTitleCase(fileName.split(".")[0], "")} from "@qurantor/data/editions/${fileName}"`
+      `"${fileName.split(".")[0]}": () => import("@qurantor/data/editions/${fileName}"),`
     );
+    // console.log(
+    //   `import ${toTitleCase(fileName.split(".")[0], "")} from "@qurantor/data/editions/${fileName}"`
+    // );
   });
 }
 
@@ -92,4 +95,4 @@ function getExportArray() {
   });
 }
 
-getExportArray();
+getImportStatements();
