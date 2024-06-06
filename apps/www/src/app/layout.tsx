@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { cn } from "~/lib/utils";
 
 import "~/styles/globals.css";
+import WebVitals from "./_components/web-vitals";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +19,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn("antialiased", inter.className)}>{children}</body>
+      <body className={cn("antialiased", inter.className)}>
+        <WebVitals />
+        {children}
+      </body>
     </html>
   );
 }
