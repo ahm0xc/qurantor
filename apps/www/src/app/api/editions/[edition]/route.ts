@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import Editions from "@qurantor/data/editions";
+import Editions from "~/data/editions/index.json";
+import fs from "node:fs";
+import path from "node:path";
 
-import {Editions as EditionImports} from "~/data/editions"
 import { STATUS_CODES } from "~/utils/status-code";
 
 export async function GET(
@@ -19,9 +20,13 @@ export async function GET(
   }
 
   try {
-    const fullEdition = await EditionImports[editionInfo.name]()
+    // const file = await fs.readdirSync(path)
+    const fileContent = fs.readFileSync(
+      path.join(process.cwd(), `./src/data/editions/${editionInfo.name}.json`),
+      "utf-8"
+    );
 
-    return NextResponse.json(fullEdition);
+    return NextResponse.json(JSON.parse(fileContent));
   } catch (error) {
     console.log("🔴 Error on /api/edition/[edition]", error);
     return NextResponse.json(
