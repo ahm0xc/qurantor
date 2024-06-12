@@ -6,18 +6,7 @@ const nextConfig = {
       fullUrl: true,
     },
   },
-  async rewrites() {
-    return [
-      {
-        source: "/docs",
-        destination: "https://unkey.mintlify.dev",
-      },
-      {
-        source: "/docs/:match*",
-        destination: "https://unkey.mintlify.dev/docs/:match*",
-      },
-    ];
-  },
+  async rewrites() {},
   async headers() {
     return [
       {
