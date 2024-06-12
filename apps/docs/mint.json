@@ -56,5 +56,6 @@
       ]
     }
   ],
-  "footerSocials": {}
+  "footerSocials": {},
+  "backgroundImage": "/images/background.png"
 }
