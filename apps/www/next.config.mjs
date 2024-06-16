@@ -6,7 +6,9 @@ const nextConfig = {
       fullUrl: true,
     },
   },
-  async rewrites() {},
+  async rewrites() {
+    return []
+  },
   async headers() {
     return [
       {
