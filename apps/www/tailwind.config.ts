@@ -20,6 +20,7 @@ const config = {
   },
   plugins: [
     require("tailwindcss-animate"),
+    require('tailwind-scrollbar-hide'),
     wedgesTW({
       prefix: "wg",
       defaultTheme: "light",
