@@ -11,6 +11,7 @@ import {
   Logo,
   HandPrayerIcon,
   SettingsIcon,
+  LibraryIcon,
 } from "~/components/icons";
 import { cn } from "~/lib/utils";
 import Image from "next/image";
@@ -38,6 +39,11 @@ const sidebarItems: (SidebarItemType | string)[] = [
     label: "Doa",
     href: "/doa",
     icon: HandPrayerIcon,
+  },
+  {
+    label: "Hadith",
+    href: "/hadith",
+    icon: LibraryIcon,
   },
 ];
 
