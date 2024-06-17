@@ -1,13 +1,12 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
+import { wedgesPalette as palette, wedgesTW } from "@lemonsqueezy/wedges";
 
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./src/**/*.{ts,tsx}",
+    "node_modules/@lemonsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -17,64 +16,45 @@ const config = {
         "2xl": "1400px",
       },
     },
-    extend: {
-      colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
-      },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      },
-      keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-      },
-    },
+    extend: {},
   },
-  plugins: [require("tailwindcss-animate")],
-} satisfies Config
+  plugins: [
+    require("tailwindcss-animate"),
+    wedgesTW({
+      prefix: "wg",
+      defaultTheme: "light",
+      themes: {
+        light: {
+          colors: {
+            background: palette.white,
+            foreground: palette.gray[900],
+            primary: {
+              DEFAULT: "#204ccf",
+              "100": "#e7eefc",
+              "200": "#c3d9f7",
+              "300": "#99b3e5",
+              "400": "#7090d3",
+              "500": "#466cc1",
+              "600": "#204ccf",
+              "700": "#003399",
+              "800": "#002266",
+              "900": "#001133",
+            },
+          },
+        },
+        dark: {
+          colors: {
+            background: palette.gray[900],
+            foreground: palette.gray[100],
+            primary: {
+              ...palette.blue,
+              DEFAULT: palette.blue[600],
+            },
+          },
+        },
+      },
+    }),
+  ],
+} satisfies Config;
 
-export default config
+export default config;
