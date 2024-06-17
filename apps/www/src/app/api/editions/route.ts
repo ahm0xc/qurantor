@@ -1,5 +1,8 @@
-import Editions from "~/data/editions/index.json";
+import { getEditions } from "~/helpers/edition";
+
+export const dynamic = "force-static";
 
 export async function GET() {
-  return new Response(JSON.stringify(Editions));
+  const editions = getEditions();
+  return new Response(JSON.stringify(editions));
 }
