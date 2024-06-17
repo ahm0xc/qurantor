@@ -13,7 +13,7 @@ export default function Layout({ children }: Props) {
         <div className="hidden md:block">
           <Sidebar />
         </div>
-        <div className="">{children}</div>
+        <main className="overflow-y-scroll">{children}</main>
       </div>
     </div>
   );
