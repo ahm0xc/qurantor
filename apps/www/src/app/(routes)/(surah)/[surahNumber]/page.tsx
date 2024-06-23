@@ -57,17 +57,17 @@ function Banner({
 }) {
   return (
     <section className="mt-20 px-8">
-      <div className="h-[4.5rem] rounded-lg border">
-        <div className="w-full h-full relative rounded-[inherit] overflow-hidden flex items-center">
+      <div className="rounded-xl border border-blue-50">
+        <div className="w-full h-full relative rounded-[inherit] flex items-center bg-blue-200/10 overflow-hidden py-1">
           <Blurs />
           <Grain />
           <div className="pl-4">
-            <h1 className="text-lg font-medium">{name} <span className="text-neutral-500">({englishName})</span></h1>
+            <h1 className="text-lg font-medium">{name} <span className="text-neutral-600">(<span className="font-indopak text-xl">{arabicName}</span>)</span></h1>
             <div>
-              <p className="text-neutral-700 inline font-indopak">
+              {/* <p className="text-neutral-700 inline font-indopak">
                 {arabicName}
-              </p>
-              <p className={cn("text-neutral-700 inline text-[15px]")}> - {verses} Ayahs</p>
+              </p> */}
+              <p className={cn("text-neutral-500 font-semibold inline text-[14px]")}>{englishName} - {verses} Ayahs</p>
             </div>
           </div>
           <div className="ml-auto pr-4">
@@ -83,7 +83,7 @@ function Blurs() {
   return (
     <>
       <span className="w-[30vw] absolute pointer-events-none h-[20vw] bg-indigo-600 rounded-full blur-3xl -top-[18vw] -right-[10vw] -z-10" />
-      <span className="w-[25vw] absolute pointer-events-none h-[20vw] bg-purple-600 rounded-full blur-3xl -bottom-[30vh] right-[10vw] -z-10" />
+      <span className="w-[2vw] absolute pointer-events-none h-[20vw] bg-purple-600 rounded-full blur-2xl -rotate-45 -bottom-[10vh] right-[18vw] -z-10" />
     </>
   );
 }
