@@ -16,7 +16,11 @@ const config = {
         "2xl": "1400px",
       },
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        indopak: ["var(--font-indopak)"]
+      }
+    },
   },
   plugins: [
     require("tailwindcss-animate"),

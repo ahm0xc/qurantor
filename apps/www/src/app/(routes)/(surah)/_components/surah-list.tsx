@@ -1,8 +1,9 @@
 import * as React from "react";
+import Link from "next/link";
+
 import { InfoType } from "./surah-sidebar";
 import { cn } from "~/lib/utils";
-import { AyatNumberStyle12Font, IndopakFont } from "~/lib/fonts";
-import Link from "next/link";
+import { AyatNumberStyle12Font } from "~/lib/fonts";
 
 interface SurahListProps {
   info: InfoType;
@@ -47,9 +48,9 @@ export function SurahCard({
           {chapter.chapter}
         </div>
         <div>
-          <p className="text-base font-medium">{chapter.englishName}</p>
+          <p className="text-base font-medium">{chapter.name}</p>
           <div className="text-sm mt-1 flex  items-center text-neutral-700 gap-2"> 
-            <p className={cn(IndopakFont.className)}>{chapter.arabicName}</p>
+            <p className="font-indopak">{chapter.arabicName}</p>
             <p>- {chapter.verses} Ayat</p>
           </div>
         </div>

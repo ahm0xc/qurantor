@@ -5,4 +5,5 @@ export const AyatNumberStyle12Font = LocalFont({
 });
 export const IndopakFont = LocalFont({
   src: "../assets/fonts/indopak.ttf",
+  variable: "--font-indopak"
 });

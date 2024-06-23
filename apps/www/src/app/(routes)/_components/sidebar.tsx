@@ -21,6 +21,7 @@ interface SidebarItemType {
   label: string;
   href: string;
   icon: React.FC<React.SVGProps<SVGSVGElement>>;
+  isActive: (path: string) => boolean;
 }
 
 const sidebarItems: (SidebarItemType | string)[] = [
@@ -28,22 +29,26 @@ const sidebarItems: (SidebarItemType | string)[] = [
     label: "Surah",
     href: "/",
     icon: BookClosedIcon,
+    isActive: (path: string) => Array.from({length: 114}).map((_, i) => "/" + (i + 1)).includes(path)
   },
   {
     label: "Prayers",
     href: "/prayers",
     icon: AlarmClockIcon,
+    isActive: (path: string) => path === "/prayers" 
   },
   "",
   {
     label: "Doa",
     href: "/doa",
     icon: HandPrayerIcon,
+    isActive: (path: string) => path === "/doa" 
   },
   {
     label: "Hadith",
     href: "/hadith",
     icon: LibraryIcon,
+    isActive: (path: string) => path === "/hadith" 
   },
 ];
 
@@ -109,7 +114,7 @@ interface SidebarItemProps {
 const SidebarItem: React.FC<SidebarItemProps> = ({ item }) => {
   const pathname = usePathname();
 
-  const isActive = pathname === item.href;
+  const isActive = item.isActive(pathname);
   const Icon = item.icon;
 
   return (
