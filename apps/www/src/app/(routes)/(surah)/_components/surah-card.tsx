@@ -19,7 +19,7 @@ export function SurahCard({
     return (
       <Link
         href={`/${chapter.chapter}`}
-        className={cn("border border-neutral-200 px-3 py-1 rounded-lg", isActive && "pr-3 pl-2 border-l-[5px] border-l-blue-500")}
+        className={cn("border border-neutral-200 px-3 py-1 rounded-lg", isActive && "pr-3 pl-2 border-l-[5px] border-blue-500")}
       >
         <div className="flex gap-2 items-center">
           <div
