@@ -30,7 +30,7 @@ const SurahPage: React.FC<SurahPageProps> = ({ params }) => {
   // }
 
   return (
-    <div>
+    <div className="h-screen overflow-y-auto">
       <Banner
         name={currentSurah.name}
         englishName={currentSurah.englishname}
@@ -38,8 +38,8 @@ const SurahPage: React.FC<SurahPageProps> = ({ params }) => {
         verses={currentSurah.verses.length}
         surahNumber={surahNumber}
       />
-      <Bismillah />
-      <Ayahs surahNumber={surahNumber} />
+      {surahNumber !== 1 && <Bismillah />}
+      <Ayahs surahNumber={surahNumber} key={`ayahs-chapter-${currentSurah.chapter}`} />
     </div>
   );
 };

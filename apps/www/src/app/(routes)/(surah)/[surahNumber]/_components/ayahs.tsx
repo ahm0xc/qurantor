@@ -1,68 +1,59 @@
 import React from "react";
+import axios from "axios";
 
-import {
-  AyatNumberStyle12Font,
-  KFGQPCHafsUthmaniFont,
-  UthmaniHafsFont,
-} from "~/lib/fonts";
+import { getInfo } from "~/helpers/info";
 import { cn } from "~/lib/utils";
+import AyahBlock from "./ayah-block";
+
+export const EDITIONS_BASE_API = "https://qurantor.vercel.app/api/editions";
+
+export const ARABIC_EDITION_NAME = "ara-quranuthmanihaf";
+export const ARABIC_LA_EDITION_NAME = "ara-quran-la1";
+export const ENGLISH_EDITION_NAME = "eng-abdulhye";
+
+export type Ayah = {
+  text: string;
+  chapter: number;
+  verse: number;
+};
+export type Quran = {
+  quran: Ayah[];
+}
 
 type Props = {
   surahNumber: number;
 };
 
 export default async function Ayahs({ surahNumber }: Props) {
+  const info = getInfo();
+  const currentChapter = info.chapters.find((c) => c.chapter === surahNumber);
+
   // eng: https://qurantor.vercel.app/api/editions/ara-quran-la1
   // ara: https://qurantor.vercel.app/api/editions/ara-qurandoorinonun
 
-  const data = await fetch(
-    "https://qurantor.vercel.app/api/editions/ara-quranuthmanihaf"
-  ).then((r) => r.json());
-  const ayahs = data.quran as {
-    text: string;
-    chapter: number;
-    verse: number;
-  }[];
-  const currentSurahAyahs = ayahs.filter(
-    (ayah) => ayah.chapter === surahNumber
-  );
+  const {data: arabicData} = await axios.get<Quran>(`${EDITIONS_BASE_API}/${ARABIC_EDITION_NAME}`);
+  const {data: arabicLaData} = await axios.get<Quran>(`${EDITIONS_BASE_API}/${ARABIC_LA_EDITION_NAME}`);
+  const {data: englishData} = await axios.get<Quran>(`${EDITIONS_BASE_API}/${ENGLISH_EDITION_NAME}`);
+  // const currentSurahAyahs = ayahs.filter(
+  //   (ayah) => ayah.chapter === surahNumber
+  // );
 
   return (
     <div className="mt-10 px-8">
       <div className="space-y-8">
-        {currentSurahAyahs.map((ayah) => {
-          return (
-            <div key={`ayah-${ayah.chapter}/${ayah.verse}`} className="border-t first:border-none pt-16 first:pt-0">
-              <div className="flex items-start">
-                <div className="px-4">
-                  <p>.</p>
-                  <p>.</p>
-                </div>
-                <div className="w-full pr-8">
-                  <div>
-                    <p
-                      className={cn(
-                        "text-4xl leading-[1.7] font-medium",
-                        KFGQPCHafsUthmaniFont.className
-                      )}
-                      dir="rtl"
-                    >
-                      {ayah.text}{" "}
-                      <span
-                        className={cn(
-                          "text-blue-500 font-medium text-[45px] mr-2",
-                          AyatNumberStyle12Font.className
-                        )}
-                      >
-                        {ayah.verse}
-                      </span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          );
-        })}
+        {Array.from({ length: currentChapter?.verses.length ?? 0 }).map(
+          (_, i) => {
+            return (
+              <AyahBlock
+                ayahNumber={i + 1}
+                arabicText={arabicData.quran[i].text}
+                arabicLaText={arabicLaData.quran[i].text}
+                englishText={englishData.quran[i].text}
+                key={`chapter-${currentChapter?.chapter}-verse-${i + 1}`}
+              />
+            );
+          }
+        )}
       </div>
     </div>
   );
