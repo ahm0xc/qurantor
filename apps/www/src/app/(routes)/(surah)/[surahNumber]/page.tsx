@@ -3,6 +3,8 @@ import * as React from "react";
 import { AyatNumberStyle12Font } from "~/lib/fonts";
 import { getInfo } from "~/helpers/info";
 import { cn } from "~/lib/utils";
+import { BismillahIcon } from "~/components/icons";
+import Ayahs from "./_components/ayahs";
 
 interface SurahPageProps {
   params: {
@@ -36,6 +38,8 @@ const SurahPage: React.FC<SurahPageProps> = ({ params }) => {
         verses={currentSurah.verses.length}
         surahNumber={surahNumber}
       />
+      <Bismillah />
+      <Ayahs surahNumber={surahNumber} />
     </div>
   );
 };
@@ -47,7 +51,7 @@ function Banner({
   englishName,
   arabicName,
   verses,
-  surahNumber
+  surahNumber,
 }: {
   name: string;
   englishName: string;
@@ -62,16 +66,34 @@ function Banner({
           <Blurs />
           <Grain />
           <div className="pl-4">
-            <h1 className="text-lg font-medium">{name} <span className="text-neutral-600">(<span className="font-indopak text-xl">{arabicName}</span>)</span></h1>
+            <h1 className="text-lg font-medium">
+              {name}{" "}
+              <span className="text-neutral-600">
+                (<span className="font-indopak text-xl">{arabicName}</span>)
+              </span>
+            </h1>
             <div>
               {/* <p className="text-neutral-700 inline font-indopak">
                 {arabicName}
               </p> */}
-              <p className={cn("text-neutral-500 font-semibold inline text-[14px]")}>{englishName} - {verses} Ayahs</p>
+              <p
+                className={cn(
+                  "text-neutral-500 font-semibold inline text-[14px]"
+                )}
+              >
+                {englishName} - {verses} Ayahs
+              </p>
             </div>
           </div>
           <div className="ml-auto pr-4">
-            <p className={cn("text-white font-medium text-[50px]", AyatNumberStyle12Font.className)}>{surahNumber}</p>
+            <p
+              className={cn(
+                "text-white font-medium text-[50px]",
+                AyatNumberStyle12Font.className
+              )}
+            >
+              {surahNumber}
+            </p>
           </div>
         </div>
       </div>
@@ -103,5 +125,13 @@ function Grain() {
         pointerEvents: "none",
       }}
     />
+  );
+}
+
+function Bismillah() {
+  return (
+    <div className="flex justify-center mt-10">
+      <BismillahIcon />
+    </div>
   );
 }

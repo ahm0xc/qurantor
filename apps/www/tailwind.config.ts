@@ -18,7 +18,7 @@ const config = {
     },
     extend: {
       fontFamily: {
-        indopak: ["var(--font-indopak)"]
+        indopak: ["var(--font-indopak)"],
       }
     },
   },
