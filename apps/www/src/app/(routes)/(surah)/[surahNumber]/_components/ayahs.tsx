@@ -2,7 +2,6 @@ import React from "react";
 import axios from "axios";
 
 import { getInfo } from "~/helpers/info";
-import { cn } from "~/lib/utils";
 import AyahBlock from "./ayah-block";
 
 export const EDITIONS_BASE_API = "https://qurantor.vercel.app/api/editions";
@@ -46,9 +45,9 @@ export default async function Ayahs({ surahNumber }: Props) {
             return (
               <AyahBlock
                 ayahNumber={i + 1}
-                arabicText={arabicData.quran[i].text}
-                arabicLaText={arabicLaData.quran[i].text}
-                englishText={englishData.quran[i].text}
+                arabicText={arabicData.quran.find(c => c.chapter === surahNumber && c.verse === (i + 1))?.text ?? ""}
+                arabicLaText={arabicLaData.quran.find(c => c.chapter === surahNumber && c.verse === (i + 1))?.text ?? ""}
+                englishText={englishData.quran.find(c => c.chapter === surahNumber && c.verse === (i + 1))?.text ?? ""}
                 key={`ayah-block/chapter-${currentChapter?.chapter}-verse-${i + 1}`}
               />
             );

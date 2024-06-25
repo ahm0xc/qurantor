@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { AyatNumberStyle12Font, KFGQPCHafsUthmaniFont } from "~/lib/fonts";
+import { ARABIC_FONT, AyatNumberStyle12Font } from "~/lib/fonts";
 import { cn } from "~/lib/utils";
 
 interface AyahBlockProps {
@@ -29,7 +29,7 @@ const AyahBlock: React.FC<AyahBlockProps> = ({
             <p
               className={cn(
                 "text-4xl leading-[1.7] font-medium",
-                KFGQPCHafsUthmaniFont.className
+                ARABIC_FONT.className
               )}
               dir="rtl"
             >

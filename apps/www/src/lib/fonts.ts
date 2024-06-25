@@ -17,17 +17,12 @@ export const KFGQPCHafsUthmaniFont = LocalFont({
   src: "../assets/fonts/KfgqpcHafsUthmanicScriptRegular-nARZ1.ttf",
 });
 
-// export const Hafs18Font = LocalFont({
-//   src: "../assets/fonts/hafs18.ttf",
-// });
-// export const Bazzi7Font = LocalFont({
-//   src: "../assets/fonts/bazzi7.ttf",
-// });
-// export const QuranCommonFont = LocalFont({
-//   src: "../assets/fonts/quran-common.ttf",
-// });
+export const BazziV7 = LocalFont({
+  src: "../assets/fonts/bazzi-v7.ttf",
+});
 
-// export const SurahNamesFont = LocalFont({
-//   src: "../assets/fonts/surah-names.ttf",
-//   variable: "--font-surah-names"
-// });
+export const HafsUthmanicV14 = LocalFont({
+  src: "../assets/fonts/hafs-uthmanic-v14.ttf",
+});
+
+export const ARABIC_FONT = HafsUthmanicV14

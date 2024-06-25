@@ -12,7 +12,13 @@ interface SurahPageProps {
   };
 }
 
-const SurahPage: React.FC<SurahPageProps> = ({ params }) => {
+export async function generateStaticParams() {
+  return Array.from({ length: 114 }).map((_, i) => ({
+    surahNumber: `${i + 1}`,
+  }));
+}
+
+export default async function SurahPage({ params }: SurahPageProps) {
   const surahNumber = parseInt(params.surahNumber);
 
   const info = getInfo();
@@ -21,13 +27,6 @@ const SurahPage: React.FC<SurahPageProps> = ({ params }) => {
   if (!currentSurah) {
     return <div>No surah found</div>;
   }
-  // if (isNaN(surahNumber)) {
-  //   return <div>nothing found</div>;
-  // }
-
-  // if (surahNumber < 1 || surahNumber > 114) {
-  //   return <div>Surah not found</div>;
-  // }
 
   return (
     <div className="h-screen overflow-y-auto">
@@ -42,9 +41,7 @@ const SurahPage: React.FC<SurahPageProps> = ({ params }) => {
       <Ayahs surahNumber={surahNumber} />
     </div>
   );
-};
-
-export default SurahPage;
+}
 
 function Banner({
   name,
