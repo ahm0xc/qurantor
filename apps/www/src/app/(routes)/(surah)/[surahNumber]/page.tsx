@@ -39,7 +39,7 @@ const SurahPage: React.FC<SurahPageProps> = ({ params }) => {
         surahNumber={surahNumber}
       />
       {surahNumber !== 1 && <Bismillah />}
-      <Ayahs surahNumber={surahNumber} key={`ayahs-chapter-${currentSurah.chapter}`} />
+      <Ayahs surahNumber={surahNumber} />
     </div>
   );
 };

@@ -49,7 +49,7 @@ export default async function Ayahs({ surahNumber }: Props) {
                 arabicText={arabicData.quran[i].text}
                 arabicLaText={arabicLaData.quran[i].text}
                 englishText={englishData.quran[i].text}
-                key={`chapter-${currentChapter?.chapter}-verse-${i + 1}`}
+                key={`ayah-block/chapter-${currentChapter?.chapter}-verse-${i + 1}`}
               />
             );
           }
