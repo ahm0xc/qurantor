@@ -1,0 +1,26 @@
+{
+  "name": "@qurantor/db",
+  "version": "0.0.1",
+  "description": "Database configuration for Qurantor",
+  "main": "index.ts",
+  "types": "index.ts",
+  "private": true,
+  "scripts": {
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate"
+  },
+  "devDependencies": {
+    "@qurantor/eslint-config": "workspace:*",
+    "@qurantor/typescript-config": "workspace:*",
+    "@types/node": "^20.11.24",
+    "dotenv": "^16.4.5",
+    "drizzle-kit": "^0.21.4",
+    "drizzle-orm": "^0.30.10",
+    "typescript": "^5.5.2"
+  },
+  "dependencies": {
+    "postgres": "^3.4.4"
+  }
+}
