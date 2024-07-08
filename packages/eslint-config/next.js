@@ -9,16 +9,32 @@ module.exports = {
     "prettier",
     require.resolve("@vercel/style-guide/eslint/next"),
     "eslint-config-turbo",
+    "plugin:@typescript-eslint/recommended",
+    "next/core-web-vitals"
   ],
   globals: {
     React: true,
     JSX: true,
   },
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    project: path.join(__dirname, "tsconfig.json"),
+  },
   env: {
     node: true,
     browser: true,
   },
-  plugins: ["only-warn"],
+  plugins: ["only-warn", "@typescript-eslint"],
+  rules: {
+    "@typescript-eslint/consistent-type-imports": [
+      "warn",
+      {
+        prefer: "type-imports",
+        fixStyle: "inline-type-imports",
+      },
+    ],
+    "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
+  },
   settings: {
     "import/resolver": {
       typescript: {
