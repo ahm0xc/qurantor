@@ -8,18 +8,16 @@ module.exports = {
     "eslint:recommended",
     "prettier",
     require.resolve("@vercel/style-guide/eslint/next"),
-    "eslint-config-turbo",
-    "plugin:@typescript-eslint/recommended",
-    "next/core-web-vitals"
+    "eslint-config-turbo"
   ],
   globals: {
     React: true,
     JSX: true,
   },
-  parser: "@typescript-eslint/parser",
-  parserOptions: {
-    project: path.join(__dirname, "tsconfig.json"),
-  },
+  // parser: "@typescript-eslint/parser",
+  // parserOptions: {
+  //   project: path.join(__dirname, "tsconfig.json"),
+  // },
   env: {
     node: true,
     browser: true,
