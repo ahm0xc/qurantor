@@ -4,7 +4,6 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
-    "lint": "turbo lint",
     "format": "pnpm biome format . --write && pnpm biome check . --apply"
   },
   "devDependencies": {

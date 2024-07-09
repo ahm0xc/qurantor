@@ -1,8 +1,5 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-  "files": {
-    "maxSize": 1572864
-  },
   "linter": {
     "enabled": true,
     "rules": {
@@ -25,8 +22,9 @@
         "noDelete": "off"
       },
       "suspicious": {
-        "noExplicitAny": "off",
-        "noConsoleLog": "warn"
+        "noExplicitAny": "warn",
+        "noConsoleLog": "warn",
+        "noArrayIndexKey": "warn"
       },
       "complexity": {
         "noForEach": "off"
@@ -37,10 +35,10 @@
       "node_modules",
       ".next",
       "dist",
-      "./packages/api/src/openapi.d.ts",
       ".wrangler",
       ".react-email",
-      ".contentlayer"
+      ".contentlayer",
+      "./apps/www/src/data/**"
     ]
   },
   "formatter": {
@@ -54,7 +52,8 @@
       "dist",
       ".wrangler",
       ".react-email",
-      ".contentlayer"
+      ".contentlayer",
+      "./apps/www/src/data/**"
     ]
   },
   "organizeImports": {
@@ -65,7 +64,8 @@
       "dist",
       ".wrangler",
       ".react-email",
-      ".contentlayer"
+      ".contentlayer",
+      "./apps/www/src/data/**"
     ]
   }
 }

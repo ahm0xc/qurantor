@@ -1,7 +1,7 @@
-import * as React from "react";
+import type * as React from "react";
 
-import { InfoType } from "./surah-sidebar";
 import { SurahCard } from "./surah-card";
+import type { InfoType } from "./surah-sidebar";
 
 interface SurahListProps {
   info: InfoType;
@@ -13,10 +13,7 @@ const SurahList: React.FC<SurahListProps> = ({ info }) => {
       <div className="flex flex-col gap-3 pb-10">
         {info.chapters.map((chapter, idx) => {
           return (
-            <SurahCard
-              chapter={chapter}
-              key={`sidebar-surah-card-${chapter.englishName}-${idx}`}
-            />
+            <SurahCard chapter={chapter} key={`sidebar-surah-card-${chapter.englishName}-${idx}`} />
           );
         })}
       </div>
@@ -25,5 +22,3 @@ const SurahList: React.FC<SurahListProps> = ({ info }) => {
 };
 
 export default SurahList;
-
-

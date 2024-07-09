@@ -1,12 +1,9 @@
-import type { Config } from "tailwindcss";
 import { wedgesPalette as palette, wedgesTW } from "@lemonsqueezy/wedges";
+import type { Config } from "tailwindcss";
 
 const config = {
   darkMode: ["class"],
-  content: [
-    "./src/**/*.{ts,tsx}",
-    "node_modules/@lemonsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./src/**/*.{ts,tsx}", "node_modules/@lemonsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}"],
   prefix: "",
   theme: {
     container: {
@@ -19,12 +16,12 @@ const config = {
     extend: {
       fontFamily: {
         indopak: ["var(--font-indopak)"],
-      }
+      },
     },
   },
   plugins: [
     require("tailwindcss-animate"),
-    require('tailwind-scrollbar-hide'),
+    require("tailwind-scrollbar-hide"),
     wedgesTW({
       prefix: "wg",
       defaultTheme: "light",

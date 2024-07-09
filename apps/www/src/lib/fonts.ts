@@ -6,7 +6,7 @@ export const AyatNumberStyle12Font = LocalFont({
 
 export const IndopakFont = LocalFont({
   src: "../assets/fonts/indopak.ttf",
-  variable: "--font-indopak"
+  variable: "--font-indopak",
 });
 
 export const UthmaniHafsFont = LocalFont({
@@ -25,4 +25,4 @@ export const HafsUthmanicV14 = LocalFont({
   src: "../assets/fonts/hafs-uthmanic-v14.ttf",
 });
 
-export const ARABIC_FONT = HafsUthmanicV14
+export const ARABIC_FONT = HafsUthmanicV14;

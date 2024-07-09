@@ -1,15 +1,9 @@
-import * as React from "react";
 import { Tooltip as T } from "@lemonsqueezy/wedges";
+import type * as React from "react";
 
-interface TooltipProps
-  extends React.ComponentPropsWithoutRef<typeof T.Content> {}
+interface TooltipProps extends React.ComponentPropsWithoutRef<typeof T.Content> {}
 
-const Tooltip: React.FC<TooltipProps> = ({
-  children,
-  content,
-  asChild = false,
-  ...props
-}) => {
+const Tooltip: React.FC<TooltipProps> = ({ children, content, asChild = false, ...props }) => {
   return (
     <T.Provider>
       <T.Root>

@@ -1,7 +1,7 @@
 import React from "react";
 
-import SearchBar from "./search-bar";
 import { getInfo } from "~/helpers/info";
+import SearchBar from "./search-bar";
 import SurahList from "./surah-list";
 const data = getInfo();
 const info = {
@@ -12,7 +12,7 @@ const info = {
     englishName: c.englishname,
     arabicName: c.arabicname,
     revelation: c.revelation,
-    verses: c.verses.length
+    verses: c.verses.length,
   })),
 };
 

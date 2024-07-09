@@ -1,9 +1,9 @@
 import * as React from "react";
 
-import { AyatNumberStyle12Font } from "~/lib/fonts";
-import { getInfo } from "~/helpers/info";
-import { cn } from "~/lib/utils";
 import { BismillahIcon } from "~/components/icons";
+import { getInfo } from "~/helpers/info";
+import { AyatNumberStyle12Font } from "~/lib/fonts";
+import { cn } from "~/lib/utils";
 import Ayahs from "./_components/ayahs";
 
 interface SurahPageProps {
@@ -19,7 +19,7 @@ export async function generateStaticParams() {
 }
 
 export default async function SurahPage({ params }: SurahPageProps) {
-  const surahNumber = parseInt(params.surahNumber);
+  const surahNumber = Number.parseInt(params.surahNumber);
 
   const info = getInfo();
   const currentSurah = info.chapters.find((ch) => ch.chapter === surahNumber);
@@ -73,21 +73,14 @@ function Banner({
               {/* <p className="text-neutral-700 inline font-indopak">
                 {arabicName}
               </p> */}
-              <p
-                className={cn(
-                  "text-neutral-500 font-semibold inline text-[14px]"
-                )}
-              >
+              <p className={cn("text-neutral-500 font-semibold inline text-[14px]")}>
                 {englishName} - {verses} Ayahs
               </p>
             </div>
           </div>
           <div className="ml-auto pr-4">
             <p
-              className={cn(
-                "text-white font-medium text-[50px]",
-                AyatNumberStyle12Font.className
-              )}
+              className={cn("text-white font-medium text-[50px]", AyatNumberStyle12Font.className)}
             >
               {surahNumber}
             </p>

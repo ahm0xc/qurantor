@@ -1,21 +1,21 @@
 "use client";
 
-import React from "react";
-import Link from "next/link";
 import { Button } from "@lemonsqueezy/wedges";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
+import type React from "react";
 
-import {
-  BookClosedIcon,
-  AlarmClockIcon,
-  Logo,
-  HandPrayerIcon,
-  SettingsIcon,
-  LibraryIcon,
-} from "~/components/icons";
-import { cn } from "~/lib/utils";
 import Image from "next/image";
+import {
+  AlarmClockIcon,
+  BookClosedIcon,
+  HandPrayerIcon,
+  LibraryIcon,
+  Logo,
+  SettingsIcon,
+} from "~/components/icons";
 import Tooltip from "~/components/ui/tooltip";
+import { cn } from "~/lib/utils";
 
 interface SidebarItemType {
   label: string;
@@ -29,26 +29,29 @@ const sidebarItems: (SidebarItemType | string)[] = [
     label: "Surah",
     href: "/",
     icon: BookClosedIcon,
-    isActive: (path: string) => Array.from({length: 114}).map((_, i) => "/" + (i + 1)).includes(path)
+    isActive: (path: string) =>
+      Array.from({ length: 114 })
+        .map((_, i) => `/${i + 1}`)
+        .includes(path),
   },
   {
     label: "Prayers",
     href: "/prayers",
     icon: AlarmClockIcon,
-    isActive: (path: string) => path === "/prayers" 
+    isActive: (path: string) => path === "/prayers",
   },
   "",
   {
     label: "Doa",
     href: "/doa",
     icon: HandPrayerIcon,
-    isActive: (path: string) => path === "/doa" 
+    isActive: (path: string) => path === "/doa",
   },
   {
     label: "Hadith",
     href: "/hadith",
     icon: LibraryIcon,
-    isActive: (path: string) => path === "/hadith" 
+    isActive: (path: string) => path === "/hadith",
   },
 ];
 
@@ -56,7 +59,7 @@ type Props = {
   className?: string;
 };
 
-export default function Sidebar({ className }: Props) {
+export default function Sidebar({ className: _ }: Props) {
   return (
     <aside className="h-full w-full flex flex-col items-center py-6 bg-surface-50">
       <div>
@@ -67,21 +70,22 @@ export default function Sidebar({ className }: Props) {
       {/* sidebar items */}
       <nav className="mt-8">
         <div className="flex flex-col gap-1">
-          {sidebarItems.map((item, idx) => {
-            if (typeof item === "string")
+          {sidebarItems.map((item) => {
+            if (typeof item === "string") {
               return (
                 <div>
                   <SidebarGroupSeparator className="my-1 w-[80%]" />
                 </div>
               );
-            return <SidebarItem key={`sidebar-item-${idx}`} item={item} />;
+            }
+            return <SidebarItem key={`sidebar-item-${item.label}`} item={item} />;
           })}
         </div>
       </nav>
       {/* sidebar footer */}
       <div className="mt-auto">
         <div className="flex justify-center">
-          <button aria-label="user button">
+          <button aria-label="user button" type="button">
             <Image
               src={"/avatar.jpg"}
               width={60}
@@ -93,10 +97,7 @@ export default function Sidebar({ className }: Props) {
         </div>
         <div className="mt-2">
           <Tooltip content={<p>Settings</p>} color="soft" side="right">
-            <Button
-              variant="transparent"
-              className="h-11 w-11 hover:bg-surface-100"
-            >
+            <Button variant="transparent" className="h-11 w-11 hover:bg-surface-100">
               <SettingsIcon className="h-6 w-6" />
               <span className="sr-only">settings</span>
             </Button>
@@ -136,15 +137,6 @@ interface SidebarGroupSeparatorProps {
   className?: string;
 }
 
-const SidebarGroupSeparator: React.FC<SidebarGroupSeparatorProps> = ({
-  className,
-}) => {
-  return (
-    <div
-      className={cn(
-        "h-1 w-[50%] mx-auto bg-surface-100 rounded-full",
-        className
-      )}
-    />
-  );
+const SidebarGroupSeparator: React.FC<SidebarGroupSeparatorProps> = ({ className }) => {
+  return <div className={cn("h-1 w-[50%] mx-auto bg-surface-100 rounded-full", className)} />;
 };

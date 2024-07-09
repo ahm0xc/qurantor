@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export default function PrayersPage() {
-  return (
-    <div>PrayersPage</div>
-  )
+  return <div>PrayersPage</div>;
 }

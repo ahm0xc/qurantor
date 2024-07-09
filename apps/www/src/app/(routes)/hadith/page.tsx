@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export default function HadithPage() {
-  return (
-    <div>HadithPage</div>
-  )
+  return <div>HadithPage</div>;
 }

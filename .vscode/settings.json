@@ -1,11 +1,6 @@
 {
-  "cSpell.words": [
-    "Ayat",
-    "Bismillah",
-    "Contentlayer",
-    "nextra",
-    "Qurantor",
-    "Sholat",
-    "Solah"
-  ]
+  "cSpell.words": ["Ayat", "Bismillah", "Contentlayer", "nextra", "Qurantor", "Sholat", "Solah"],
+  "editor.codeActionsOnSave": {
+    "source.organizeImports.biome": "explicit"
+  }
 }
