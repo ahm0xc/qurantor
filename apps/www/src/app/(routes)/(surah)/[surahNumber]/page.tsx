@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { BismillahIcon } from "~/components/icons";
-import { getInfo } from "~/helpers/info";
+import { getInfo } from "~/helpers/quran";
 import { AyatNumberStyle12Font } from "~/lib/fonts";
 import { cn } from "~/lib/utils";
 import Ayahs from "./_components/ayahs";

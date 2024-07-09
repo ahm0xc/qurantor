@@ -1,5 +1,8 @@
-import InfoData from "~/data/info.json";
+import { getInfo } from "~/helpers/quran";
 
-export async function GET(_: Request) {
-  return new Response(JSON.stringify(InfoData));
+export const dynamic = "force-static";
+
+export async function GET(_req: Request) {
+  const info = getInfo();
+  return new Response(JSON.stringify(info));
 }

@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 
-import { getInfo } from "~/helpers/info";
+import { getInfo } from "~/helpers/quran";
 import AyahBlock from "./ayah-block";
 
 export const EDITIONS_BASE_API = "https://qurantor.vercel.app/api/editions";

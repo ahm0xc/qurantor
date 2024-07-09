@@ -1,6 +1,6 @@
 import React from "react";
 
-import { getInfo } from "~/helpers/info";
+import { getInfo } from "~/helpers/quran";
 import SearchBar from "./search-bar";
 import SurahList from "./surah-list";
 const data = getInfo();
