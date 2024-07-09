@@ -4,7 +4,7 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
-    "format": "pnpm biome format . --write && pnpm biome check . --apply"
+    "format": "pnpm biome format . --write && pnpm biome check . --write"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.8.3",
