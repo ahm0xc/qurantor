@@ -5,12 +5,10 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": ""
   },
   "devDependencies": {
-    "@qurantor/eslint-config": "workspace:*",
     "@qurantor/typescript-config": "workspace:*",
-    "prettier": "^3.2.5",
     "turbo": "^2.0.4"
   },
   "packageManager": "pnpm@9.2.0",
