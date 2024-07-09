@@ -12,10 +12,12 @@ export function GET(
     "utf-8",
   );
   const data = JSON.parse(content) as Edition;
+  console.time()
   const chapter = {
     chapter: Number.parseInt(params.chapter),
     verses: data.quran.filter((c) => c.chapter === Number.parseInt(params.chapter)),
   };
+  console.timeEnd()
 
   return new Response(JSON.stringify(chapter));
 }
